@@ -19,6 +19,7 @@ import java.util.Set;
 public class Reservation implements Serializable {
 @Id
 @GeneratedValue(strategy = GenerationType.SEQUENCE)
+@SequenceGenerator(name = "reservation_sequence", sequenceName = "reservation_seq", allocationSize = 1)
 @Setter(AccessLevel.NONE)
 
     @NonNull

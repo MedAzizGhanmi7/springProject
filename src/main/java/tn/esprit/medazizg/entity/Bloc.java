@@ -9,7 +9,7 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@ToString(exclude = "idBloc")
+@ToString(exclude = {"idBloc","foyer","chambres"})
 @EqualsAndHashCode(exclude = "idBloc")
 @NoArgsConstructor
 @AllArgsConstructor
