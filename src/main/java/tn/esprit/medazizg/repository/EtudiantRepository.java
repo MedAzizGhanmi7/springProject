@@ -11,4 +11,6 @@ public interface EtudiantRepository extends JpaRepository<Etudiantt,Long> {
 
     List<Etudiantt> findByReservationsIdReservation(String idReservation);
 
+    Etudiantt findByCin(long cin);
+
 }

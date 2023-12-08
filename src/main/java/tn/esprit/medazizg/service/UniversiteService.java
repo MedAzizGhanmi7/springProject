@@ -14,5 +14,8 @@ public interface UniversiteService {
     Universite updateUniversite(Universite Universite);
     void deleteUniversite(long id);
     List<Universite> findByFoyerNomFoyer(String nomFoyer);
+    public Universite affecterFoyerAUniversite (long idFoyer, String nomUniversite) ;
+
+    public Universite desaffecterFoyerAUniversite (long idUniversite) ;
 
 }

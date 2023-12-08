@@ -39,5 +39,20 @@ public class UniversiteController {
     public void deleteUniversiteById(@PathVariable long idUniversite ){universiteService.deleteUniversite(idUniversite);}
     @Operation(summary = "get all universites by nom foyer")
     @GetMapping ("getAllByNomFoyer/{nomFoyer}")
-    public List<Universite> getAllUniversitesByNomFoyer( String nomFoyer){return universiteService.findByFoyerNomFoyer(nomFoyer);}
+    public List<Universite> getAllUniversitesByNomFoyer(@PathVariable String nomFoyer){return universiteService.findByFoyerNomFoyer(nomFoyer);}
+
+    @Operation(summary = "affecter foyer")
+    @PutMapping ("setFoyerUniversite/{nomUniversite}")
+    public Universite affecterFoyerAUniversite( @PathVariable("nomUniversite") String nomUniversit ,@RequestParam("x") Long idFoyer)
+    {return universiteService.affecterFoyerAUniversite(idFoyer,nomUniversit);}
+
+    @Operation(summary = "desaffecter foyer")
+    @PutMapping ("setFoyerUniversite")
+    public Universite desaffecterFoyerAUniversite(  @RequestParam("x") Long idUniversite)
+    {return universiteService.desaffecterFoyerAUniversite(idUniversite);}
+
+
+
+
+
 }

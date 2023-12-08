@@ -1,22 +1,24 @@
 package tn.esprit.medazizg.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.transaction.Transactional;
+import lombok.AllArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 import tn.esprit.medazizg.entity.Bloc;
+import tn.esprit.medazizg.entity.Foyer;
 import tn.esprit.medazizg.repository.BlocRepository;
+import tn.esprit.medazizg.repository.FoyerRepository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
+@AllArgsConstructor
 @Service
 public class BlocServiceImpl implements BlocService{
     BlocRepository blocRepository;
-    @Autowired
-    public BlocServiceImpl(BlocRepository blocRepository) {
-        this.blocRepository = blocRepository;
-    }
+    FoyerRepository foyerRepository;
+
     @Override
     public Bloc createBloc(Bloc bloc) {
         return blocRepository.save(bloc);
@@ -41,5 +43,13 @@ public class BlocServiceImpl implements BlocService{
 
         System.out.println("Liste des blocs :");
         System.out.println(blocRepository.findAll().toString());
+    }
+   @Override
+   @Transactional
+   public void affecterBlocAfoyer(Foyer foyer, Set<Bloc> blocs){
+       blocs.forEach(bloc -> bloc.setFoyer(foyer));
+       blocRepository.saveAll(blocs);
+
+
     }
 }

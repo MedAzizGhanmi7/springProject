@@ -13,4 +13,6 @@ public interface ReservationService {
     Reservation updateReservation(Reservation reservation);
     void deleteReservation(String id);
     List<Reservation> findByEtudiantsIdEtudiant(long idEtudiant);
+   public Reservation ajouterReservation (long idBloc, long cinEtudiant) ;
+
 }

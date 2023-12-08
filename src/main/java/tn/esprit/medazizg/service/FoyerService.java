@@ -14,4 +14,5 @@ public interface FoyerService {
     void deleteFoyer(long id);
     List<Foyer> findByBlocsNomBloc(String nomBloc);
 
+
 }

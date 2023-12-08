@@ -41,4 +41,11 @@ public class ChambreController {
     @Operation(summary = "get a room by bloc name")
     @GetMapping ("getAllChambresNomBloc/{nomBloc}")
     public List<Chambre> findByBlocNomBloc( @PathVariable String nomBloc){return chambreService.findByBlocNomBloc(nomBloc);}
+
+
+    @Operation(summary = "get a room by bloc name")
+    @PutMapping ("affecterChambresABloc/{IdBloc}")
+    public Bloc affecterChambresABloc( @PathVariable Long IdBloc ,
+                                       @RequestParam  List<Long> numChambre)
+    {return chambreService.affecterChambresABloc(numChambre,IdBloc);}
 }

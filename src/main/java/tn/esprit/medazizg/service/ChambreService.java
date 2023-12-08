@@ -1,5 +1,6 @@
 package tn.esprit.medazizg.service;
 
+import tn.esprit.medazizg.entity.Bloc;
 import tn.esprit.medazizg.entity.Chambre;
 
 import java.util.List;
@@ -13,5 +14,6 @@ public interface ChambreService {
     void deleteChambre(long id);
 
     List<Chambre> findByBlocNomBloc(String nomBloc);
+    public Bloc affecterChambresABloc(List<Long> numChambre, long idBloc) ;
 
 }

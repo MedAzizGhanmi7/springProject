@@ -1,5 +1,7 @@
 package tn.esprit.medazizg.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -10,7 +12,7 @@ import java.util.Set;
 @Getter
 @Setter
 @ToString(exclude = {"idBloc","foyer","chambres"})
-@EqualsAndHashCode(exclude = "idBloc")
+@EqualsAndHashCode(exclude = {"idBloc","foyer","chambres"})
 @NoArgsConstructor
 @AllArgsConstructor
 @RequiredArgsConstructor
@@ -25,8 +27,8 @@ public class Bloc implements Serializable {
 
     @NonNull
     private String nomBloc;
-
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JsonBackReference
     private Foyer foyer ;
 
     @OneToMany(cascade = CascadeType.ALL , mappedBy = "bloc")
